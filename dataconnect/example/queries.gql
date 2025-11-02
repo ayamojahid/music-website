@@ -1,0 +1,36 @@
+mutation CreateNewPlaylist($name: String!, $description: String, $isPublic: Boolean!) @auth(level: USER) {
+  playlist_insert(data: {
+    name: $name,
+    description: $description,
+    isPublic: $isPublic,
+    userId_expr: "auth.uid",
+    createdAt_expr: "request.time",
+    updatedAt_expr: "request.time"
+  })
+}
+
+query GetPublicPlaylists @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  playlists(where: {isPublic: {eq: true}}) {
+    id
+    name
+    description
+    createdAt
+    updatedAt
+  }
+}
+
+mutation AddSongToPlaylist($playlistId: UUID!, $songId: UUID!, $positionInPlaylist: Int!) @auth(level: USER) {
+  playlistSong_insert(data: {
+    playlistId: $playlistId,
+    songId: $songId,
+    positionInPlaylist: $positionInPlaylist
+  })
+}
+
+mutation AddLikeToSong($songId: UUID!) @auth(level: USER) {
+    like_insert(data: {
+        userId_expr: "auth.uid",
+        songId: $songId,
+        createdAt_expr: "request.time"
+    })
+}

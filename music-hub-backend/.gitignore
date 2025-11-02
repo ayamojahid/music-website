@@ -1,0 +1,22 @@
+# إنشاء محتوى ملف .gitignore
+@'
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Uploads
+uploads/*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+'@ | Set-Content .gitignore
+
+Write-Host "✅ Created .gitignore file" -ForegroundColor Green

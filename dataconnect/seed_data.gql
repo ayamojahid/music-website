@@ -1,0 +1,96 @@
+mutation CreateDemoData @transaction @auth(level: PUBLIC, insecureReason: "This mutation is used to populate the database with seed data and is safe to expose to the public.") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      username: "demouser1",
+      email: "demouser1@example.com",
+      passwordHash: "somehash",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      username: "demouser2",
+      email: "demouser2@example.com",
+      passwordHash: "someotherhash",
+      createdAt: "2024-01-01T00:00:00Z"
+    }
+  ])
+  song_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      title: "Song 1",
+      artistName: "Artist 1",
+      albumName: "Album 1",
+      audioFileUrl: "http://example.com/song1.mp3",
+      durationSeconds: 120,
+      createdAt: "2024-01-01T00:00:00Z",
+      releaseYear: 2023
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440003",
+      title: "Song 2",
+      artistName: "Artist 2",
+      albumName: "Album 2",
+      audioFileUrl: "http://example.com/song2.mp3",
+      durationSeconds: 180,
+      createdAt: "2024-01-01T00:00:00Z",
+      releaseYear: 2023
+    }
+  ])
+  playlist_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440004",
+      name: "Playlist 1",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      createdAt: "2024-01-01T00:00:00Z",
+      updatedAt: "2024-01-01T00:00:00Z",
+      isPublic: true
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440005",
+      name: "Playlist 2",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      createdAt: "2024-01-01T00:00:00Z",
+      updatedAt: "2024-01-01T00:00:00Z",
+      isPublic: false
+    }
+  ])
+  playlistSong_insertMany(data: [
+    {
+      playlistId: "550e8400-e29b-41d4-a716-446655440004",
+      songId: "550e8400-e29b-41d4-a716-446655440002",
+      positionInPlaylist: 1
+    },
+    {
+      playlistId: "550e8400-e29b-41d4-a716-446655440005",
+      songId: "550e8400-e29b-41d4-a716-446655440003",
+      positionInPlaylist: 1
+    }
+  ])
+  like_insertMany(data: [
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      songId: "550e8400-e29b-41d4-a716-446655440002",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      playlistId: "550e8400-e29b-41d4-a716-446655440005",
+      createdAt: "2024-01-01T00:00:00Z"
+    }
+  ])
+  comment_insertMany(data: [
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      songId: "550e8400-e29b-41d4-a716-446655440002",
+      createdAt: "2024-01-01T00:00:00Z",
+      text: "Great song!"
+    },
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      playlistId: "550e8400-e29b-41d4-a716-446655440005",
+      createdAt: "2024-01-01T00:00:00Z",
+      text: "Awesome playlist!"
+    }
+  ])
+}
