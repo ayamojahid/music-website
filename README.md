@@ -1,4 +1,4 @@
-# 🎵 Music Hub
+# 🎵 MusicVerse Pro
 
 Un site web moderne et interactif pour découvrir, écouter et organiser votre musique préférée.
 
@@ -42,7 +42,7 @@ Le site sera disponible à l'adresse `http://localhost:3000`
 ## 📁 Structure du projet
 
 ```
-music-hub/
+MusicVerse Pro/
 ├── public/            # Fichiers statiques
 ├── src/
 │   ├── api/          # Intégration API Deezer
@@ -107,7 +107,7 @@ colors: {
 - [ ] Système de notation par morceau
 - [ ] Synchronisation cloud (Firebase)
 - [ ] Mode sombre/clair
-# MusicHub Pro (music-website)
+# MusicVerse Pro (music-website)
 
 A modern React + Vite music app demo with Tailwind CSS and Firebase integration for authentication, per-user song persistence and simple profile management. It's designed as a learning / prototype project — resembling a small Spotify-like UI for personal music uploads, favorites and playlists.
 
